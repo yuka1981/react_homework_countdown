@@ -12,12 +12,8 @@ import React, { useState, useEffect } from "react";
  */
 
 function addZero(value) {
-  if (value < 10) {
-    // 小於 10 的數字補個 0 在前面
-    return `0${value}`
-  }
-
-  return value
+  // 小於 10 的數字補個 0 在前面
+  return (value < 10) ? `0${value}` : value;
 }
 
 // 把 "dd:hh:mm:ss" 字串轉成 second, second 轉成 "dd:hh:mm:ss" 格式
