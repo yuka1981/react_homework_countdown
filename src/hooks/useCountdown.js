@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 // import { number } from "yargs";
 
 /**
@@ -69,13 +69,21 @@ function useCountdown(endTime) {
 
   }, [isActive])
 
-  const onStart = () => {
-    setActive(true);
-  };
+  const onStart = useCallback(() => {
+      setActive(prev => true);
+    }, [isActive])
 
-  const onStop = () => {
-    setActive(false);
-  };
+  const onStop = useCallback(() => {
+      setActive(prev => false);
+    }, [isActive])
+
+  // const onStart = () => {
+  //   setActive(true);
+  // };
+
+  // const onStop = () => {
+  //   setActive(false);
+  // };
 
   return {
     value,
